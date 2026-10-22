@@ -46,12 +46,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* navegación fija */
 .tabsbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--bg);border-block:1px solid var(--rule);
   margin-left:calc(-1*var(--gl));margin-right:calc(-1*var(--gr));padding:0 var(--gr) 0 var(--gl)}
-.tabs{max-width:640px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:6px 0}
-.tabs::-webkit-scrollbar{display:none}
-.tab{appearance:none;flex:none;cursor:pointer;position:relative;background:transparent;border:1px solid transparent;color:var(--muted);
-  min-height:44px;padding:0 14px;border-radius:999px;font:500 .72rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.tabs{max-width:640px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:8px 0}
+.tab{appearance:none;cursor:pointer;position:relative;background:transparent;border:1px solid var(--rule);color:var(--muted);
+  min-height:44px;padding:6px 4px;border-radius:12px;font:500 .64rem/1.15 var(--sans);letter-spacing:.09em;text-transform:uppercase;text-align:center;text-wrap:balance;
+  display:flex;align-items:center;justify-content:center}
+@media (min-width:600px){.tabs{grid-template-columns:repeat(6,auto);justify-content:center}.tab{padding:6px 14px;font-size:.7rem}}
 .tab[aria-selected="true"]{background:var(--gold);color:var(--on-gold)}
-.tab[data-inview="true"]:not([aria-selected="true"]){color:var(--ink);border-color:var(--gold-line)}
+.tab[data-inview="true"]:not([aria-selected="true"]){color:var(--ink);border-color:var(--gold)}
 
 /* secciones */
 .cat{padding-top:26px}
@@ -82,7 +83,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .o-num{margin:0;font:500 1.6rem/1.2 var(--sans);letter-spacing:.06em;color:var(--gold);font-variant-numeric:tabular-nums}
 footer{margin-top:40px;padding-top:28px;border-top:1px solid var(--gold-line);display:flex;justify-content:center}
 footer img{height:64px;width:auto}
-@media (max-width:380px){.name{font-size:1.35rem}.sh h2{font-size:1.6rem}}
+@media (max-width:380px){.name{font-size:1.35rem}.sh h2{font-size:1.6rem}.tab{font-size:.6rem;letter-spacing:.06em}}
 </style>
 
 </head>
